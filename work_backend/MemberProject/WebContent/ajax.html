@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".hover").hover(function(e) {
+			var id = this.id;
+			var name = $(this).text();
+			$.ajax({
+				url: 'data_xml.jsp',
+				type: "get",
+				data: {
+					pid: id,
+					pname: name
+				},
+				dataType:"xml",
+				success:function(data){
+					$("member", data).each(function(){
+						var resname = $("name",this).text();
+						if(name == resname){
+							var age = $("age",this).text();
+							var addr = $("addr",this).text();
+							$("#dd").text(resname+","+age+","+addr);
+						}
+					});
+				}
+			});
+			console.log(this.id);
+			
+		}, function(e) {
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>아이디</th>
+			<th>이름</th>
+		</tr>
+		<tr>
+			<td>id1</td>
+			<td class="hover" id="id1">둘리</td>
+		</tr>
+		<tr>
+			<td>id2</td>
+			<td class="hover" id="id2">도우너</td>
+		</tr>
+		<tr>
+			<td>id3</td>
+			<td class="hover" id="id3">또치</td>
+		</tr>
+		<tr>
+			<td>id4</td>
+			<td class="hover" id="id4">마이콜</td>
+		</tr>
+		<tr>
+			<td>id5</td>
+			<td class="hover" id="id5">고길동</td>
+		</tr>
+	</table>
+	<div id="dd"></div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인</title>
+
+<style type="text/css">
+	body{
+		width: 300px;
+		margin: 0 auto;
+	}
+	
+	#line{
+		border: 1px solid #000;
+	}
+</style>
+</head>
+<body>
+	<h1>Login 화면</h1>
+	<form action="login.jsp" method="post">
+		<table id="line">
+			<tr>
+				<td>ID : </td>
+				<td>
+					<input type="text" name="userid">
+				</td>
+			</tr>
+			<tr>
+				<td>PW : </td>
+				<td>
+					<input type="password" name="passwd">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" value="로그인">
+					<input type="reset" value="취소">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

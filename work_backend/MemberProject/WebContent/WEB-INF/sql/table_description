@@ -1,0 +1,26 @@
+create database memberweb;
+
+use memberweb;
+
+create table WebMember(
+	id varchar(30),
+    pw varchar(30) not null,
+    name varchar(30) not null,
+    tel varchar(16),
+    gender char(1),
+	primary key(id),
+    check(gender in('남','여'))
+);
+
+create table WebProduct(
+	code varchar(50),
+    name varchar(30) not null,
+    price int not null,
+    stock int not null,
+    memo text,
+    reg_mb_id varchar(30) not null,
+    reg_date datetime not null,
+    up_mb_id varchar(30),
+    up_date datetime,
+	primary key(code)
+);

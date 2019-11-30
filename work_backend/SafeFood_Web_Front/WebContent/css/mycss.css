@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'BMHANNAAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html * {
+	font-family: 'BMHANNAAir';
+}
+
+body {
+	padding-top: 70px;
+}
+
+.material {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 120px;
+}
+
+.jumbotron {
+	background-color: #eef8ff;
+	text-align: center;
+	padding: 20px;
+	box-shadow: 0 10px 6px -6px #999;
+}
+
+div.ex {
+	background-color: #ccc;
+ 	width: 600px; 
+	padding: 50px;
+	border-style: outset;
+	margin: 70px auto;
+}
+
+.form-group .control-label:after {
+	content: "*";
+	color: red;
+}
+
+th, td {
+	vertical-align: middle !important;
+}
+
+th {
+	white-space: nowrap;
+	text-align: center;
+}

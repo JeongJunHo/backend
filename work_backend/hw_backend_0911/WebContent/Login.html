@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<title>Insert title here</title>
+
+<style type="text/css">
+	#outer{
+		width: 300px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	.label_div{
+		min-width: 100px;
+		display: inline-block;
+	}
+	
+	.submit_btn{
+		width: 93%;
+	}
+</style>
+
+<script type="text/javascript">
+	$(function(){
+		$("#login_form").submit(function(){
+			if($("#id").val() == ""){
+				alert("아이디를 입력해주세요.");
+				$("#id").focus();
+				return false;
+			}
+			if($("#pwd").val() == ""){
+				alert("비밀번호를 입력해주세요.");
+				$("#pwd").focus();
+				return false;
+			}
+		});
+	});
+	
+</script>
+
+</head>
+<body>
+	<div id="outer">
+		<h1>로그인하여 주세요</h1>
+		<form id="login_form" action="Login.do">
+			<div class="label_div">
+				<label>ID</label>
+			</div>
+			<input type="text" id="id" name="id">
+			<br/>
+			<div class="label_div">
+				<label>PASSWORD</label>
+			</div>
+			<input type="password" id="pwd" name="pwd">
+			<button class="submit_btn" type="submit">로그인</button>
+		</form>
+	</div>
+</body>
+</html>

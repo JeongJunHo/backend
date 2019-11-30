@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style type="text/css">
+	#outer{
+		width: 600px;
+		margin: 0 auto;
+	}
+	
+	.p_15{
+		padding: 15px;
+	}
+	
+	.text_center{
+		text-align: center;
+	}
+	
+	.text_red{
+		color: red;
+	}
+	
+	.bg_gray{
+		background: gray;
+	}
+	
+	table{
+		width: 100%;
+	}
+	
+	table td{
+		padding: 5px;
+	}
+	
+	.width_100{
+		width: 100px;
+	}
+	
+	.width_200{
+		width: 200px;
+	}
+	
+	.width_400{
+		width: 400px;
+	}
+	
+	#cancel_btn{
+		
+	}
+</style>
+
+<script type="text/javascript">
+	$(function(){
+		$("#cancel_btn").on("click", function(){
+			location.href = "Result.html";
+		});
+		
+		$("#insert_form").submit(function(){
+			if($("#hp1").val() == "" || $("#hp2").val() == "" || $("#hp3").val() == ""){
+				alert("도서번호를 입력해주세요.");
+				$("#hp1").focus();
+				return false;
+			}
+			if($("#title").val() == ""){
+				alert("도서제목을 입력해주세요.");
+				$("#title").focus();
+				return false;
+			}
+			if($("#type").val() == ""){
+				alert("도서종류를 선택해주세요.");
+				$("#type").focus();
+				return false;
+			}
+			if($("#author").val() == ""){
+				alert("저자를 입력해주세요.");
+				$("#author").focus();
+				return false;
+			}
+		});
+	});
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="outer">
+		<div class="p_15 bg_gray">
+			<h1>도서 등록 화면</h1>
+		</div>
+		<form id="insert_form" action="Login.do" method="POST">
+			<table>
+				<tr>
+					<td colspan="2">
+						<span class="text_red">*</span> 표시가 된 항목은 필수 입력 항목입니다.
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="bg_gray" colspan="2">&nbsp;</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<span class="text_red">*</span> 도서번호
+					</td>
+					<td>
+						<input type="number" class="width_100" id="hp1" name="hp1">
+						-
+						<input type="number" class="width_100" id="hp2" name="hp2">
+						-
+						<input type="number" class="width_100" id="hp3" name="hp3">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<span class="text_red">*</span> 도서제목
+					</td>
+					<td>
+						<input type="text" class="width_400" id="title" name="title">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<span class="text_red">*</span> 도서종류
+					</td>
+					<td>
+						<select class="width_200" id="type" name="type">
+							<option value="">해당 항목을 선택하세요</option>
+							<option value="프로그래밍">프로그래밍</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						* 출판국가
+					</td>
+					<td>
+						<label><input checked="checked" type="radio" name="country" value="국내"> 국내도서</label>
+						<label><input type="radio" name="country" value="외국"> 외국도서</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						* 출 판 일
+					</td>
+					<td>
+						<input type="text" id="pubDate" name="pubDate" class="width_200">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						* 출 판 사
+					</td>
+					<td>
+						<select class="width_200" id="pub" name="pub">
+							<option value="">해당 항목을 선택하세요</option>
+							<option value="사이버출판사">사이버출판사</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<span class="text_red">*</span> 저자
+					</td>
+					<td>
+						<input type="text" class="width_100" id="author" name="author">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						* 도서가격
+					</td>
+					<td>
+						<input type="text" id="price" name="price">
+						<select class="width_100" id="priceType" name="priceType">
+							<option value="원">원</option>
+							<option value="달러">달러</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						* 요약내용
+					</td>
+					<td>
+						<textarea rows="3" cols="40" id="desc" name="desc"></textarea>
+					</td>
+				</tr>
+			</table>
+			
+			<div class="p_15 bg_gray">
+				<button type="submit">도서등록</button>
+				<button type="button" id="cancel_btn">취소</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
